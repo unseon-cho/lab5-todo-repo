@@ -49,10 +49,10 @@ def update(name=None, todoid=None):
     mysql.connection.commit()
     return render_template('index.html', name="Todo recored was updated")      #Return the data in a string format
 
-@app.route("/delete/<name>")
+@app.route("/delete/<id>")
 def delete(name=None):
     cur=mysql.connection.cursor()
-    delstatmt = "DELETE FROM list WHERE todoname = ' {} ' ".format(name)
+    delstatmt = "DELETE FROM list WHERE todoid = ' {} ' ".format(id)
     print(delstatmt)                
    
     cur.execute(delstatmt)
